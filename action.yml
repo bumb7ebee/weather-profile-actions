@@ -42,8 +42,8 @@ runs:
       run: |
         echo "INPUT_CITY_ID=${{ inputs.city-id }}" >> $GITHUB_ENV
         echo "INPUT_METRIC=${{ inputs.metric }}" >> $GITHUB_ENV
-        printf "PATH_README=%s/%s" $GITHUB_WORKSPACE ${{ inputs.readme-path }} >> $GITHUB_ENV
-        printf "PATH_README_TEMPLATE=%s/%s" $GITHUB_WORKSPACE ${{ inputs.readme-template-path }} >> $GITHUB_ENV
+        printf "PATH_README=%s/%s\n" $GITHUB_WORKSPACE ${{ inputs.readme-path }} >> $GITHUB_ENV
+        printf "PATH_README_TEMPLATE=%s/%s\n" $GITHUB_WORKSPACE ${{ inputs.readme-template-path }} >> $GITHUB_ENV
         echo $GITHUB_ENV
     - name: Run script
       shell: bash
