@@ -1,0 +1,55 @@
+name: Weather - Profile README
+author: bumb7ebee
+description: Update your README.md file with the weather of a city
+
+branding:
+  color: yellow
+  icon: cloud-rain
+
+inputs:
+  city-id:
+    description: "Numerical ID of the city"
+    required: true
+  metric:
+    description: "Centigrade (c) or Fahrenheit (f)"
+    required: false
+    default: 'c'
+  readme-path:
+    description: "README.md file path"
+    required: false
+    default: 'README.md'
+  readme-template-path:
+    description: "Template README.md file path"
+    required: false
+    default: 'README.md.template'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+        architecture: 'x64'
+        cache: 'pip'
+    - name: Install dependencies
+      shell: bash
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Pass inputs to shell
+      shell: bash
+      run: |
+        echo "INPUT_CITY_ID=${{ inputs.city-id }}" >> $GITHUB_ENV
+        echo "INPUT_METRIC=${{ inputs.metric }}" >> $GITHUB_ENV
+        README_PATH=${{ inputs.readme-path }}
+        printf -v README_PATH "%s/%s" $GITHUB_WORKSPACE $README_PATH
+        echo "$README_PATH" >> $GITHUB_ENV
+        README_TEMPLATE_PATH=${{ inputs.readme-template-path }}
+        printf -v README_TEMPLATE_PATH "%s/%s" $GITHUB_WORKSPACE $README_TEMPLATE_PATH
+        echo "$README_TEMPLATE_PATH" >> $GITHUB_ENV
+        echo $GITHUB_ENV
+    - name: Run script
+      shell: bash
+      run: |
+        python src/main.py
