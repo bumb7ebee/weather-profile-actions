@@ -21,10 +21,6 @@ inputs:
     description: "README.md file path"
     required: false
     default: 'README.md'
-  readme-template-path:
-    description: "Template README.md file path"
-    required: false
-    default: 'README.md.template'
 
 runs:
   using: 'composite'
