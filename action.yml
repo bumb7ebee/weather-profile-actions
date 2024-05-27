@@ -32,7 +32,7 @@ runs:
       with:
         python-version: '3.x'
         architecture: 'x64'
-        cache: 'pip'
+        # cache: 'pip'
     - name: Install dependencies
       shell: bash
       run: |
