@@ -42,7 +42,7 @@ runs:
         echo "INPUT_WEATHER_API_KEY=${{ inputs.weather-api-key }}" >> $GITHUB_ENV
         echo "INPUT_CITY_ID=${{ inputs.city-id }}" >> $GITHUB_ENV
         echo "INPUT_METRIC=${{ inputs.metric }}" >> $GITHUB_ENV
-        printf "PATH_README=%s/%s\n" $GITHUB_WORKSPACE ${{ inputs.readme-path }} >> $GITHUB_ENV
+        printf "README_PATH=%s/%s\n" $GITHUB_WORKSPACE ${{ inputs.readme-path }} >> $GITHUB_ENV
     - name: Run script
       shell: bash
       run: |
