@@ -47,3 +47,10 @@ runs:
       shell: bash
       run: |
         python -u ${{ github.action_path }}/src/main.py
+    - name: Push changes
+      shell: bash
+      run: |
+        git config --local user.name "github-actions[bot]"
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com
+        git add {{ inputs.readme-path }}
+        git diff-index --quiet HEAD || (git commit -a -m "Update README.md" --allow-empty)
