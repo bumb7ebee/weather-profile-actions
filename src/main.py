@@ -6,7 +6,7 @@ import requests as req
 
 WEATHER_REQUEST_URL = "https://api.openweathermap.org/data/2.5/weather?id={}&units={}&mod=json&appid={}"
 
-WEATHER_TEMPLATE="""<h3>Hello from {} province, <img src="https://flagicons.lipis.dev/flags/4x3/{}.svg" width="28" height="21"/>!</h3>
+WEATHER_TEMPLATE="""<h3>Hello from {} province of <img src="https://flagicons.lipis.dev/flags/4x3/{}.svg" width="28" height="21"/></h3>
 <p>Currently, the weather is: <b> {}°{}, <img src="https://openweathermap.org/img/wn/{}.png" width="28" height="28" title= "Weather Icon" alt="Weather Icon"> <i>({})</i></b></br>Today, the sun rises at <b>{}</b> and sets at <b>{}</b>.</p>"""
 
 def refresh_contents(old_content, new_content):
