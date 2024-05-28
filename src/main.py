@@ -6,7 +6,7 @@ import requests as req
 
 WEATHER_REQUEST_URL = "https://api.openweathermap.org/data/2.5/weather?id={}&units={}&mod=json&appid={}"
 
-WEATHER_TEMPLATE="""<h3>Hello from <img src="https://github.com/bumb7ebee/bumb7ebee/blob/asset/images/icon/turkey_32.png" width="28" height="28"/> {}!</h3>
+WEATHER_TEMPLATE="""<h3>Hello from {} province, <img src="https://flagicons.lipis.dev/flags/4x3/{}.svg" width="28" height="21"/>!</h3>
 <p>Currently, the weather is: <b> {}°{}, <img src="https://openweathermap.org/img/wn/{}.png" width="28" height="28" title= "Weather Icon" alt="Weather Icon"> <i>({})</i></b></br>Today, the sun rises at <b>{}</b> and sets at <b>{}</b>.</p>"""
 
 def refresh_contents(old_content, new_content):
@@ -18,9 +18,9 @@ def prepare_url(city_id, units, weather_api_key):
     global WEATHER_REQUEST_URL
     WEATHER_REQUEST_URL = WEATHER_REQUEST_URL.format(city_id, 'imperial' if units == 'f' else 'metric', weather_api_key)
 
-def prepare_template(city, temp, units, icon, desc, sunrise, sunset):
+def prepare_template(city, country_code, temp, units, icon, desc, sunrise, sunset):
     global WEATHER_TEMPLATE
-    WEATHER_TEMPLATE = WEATHER_TEMPLATE.format(city, temp, units.capitalize(), icon, desc, sunrise, sunset)
+    WEATHER_TEMPLATE = WEATHER_TEMPLATE.format(city, country_code, temp, units.capitalize(), icon, desc, sunrise, sunset)
 
 def make_request():
     try:
@@ -30,7 +30,6 @@ def make_request():
         print(error)
 
     return response.json()
-
 
 def main():
 
@@ -48,7 +47,12 @@ def main():
         UNITS = os.environ["INPUT_UNITS"]
     except KeyError:
         UNITS = "Token not available!"
-    
+
+    try:
+        COUNTRY_CODE = os.environ["INPUT_COUNTRY_CODE"]
+    except KeyError:
+        COUNTRY_CODE = "Token not available!"
+
     try:
         README_PATH = os.environ["README_PATH"]
     except KeyError:
@@ -64,7 +68,7 @@ def main():
     sunrise = api_data_json['sys']['sunrise']
     sunset = api_data_json['sys']['sunset']
 
-    prepare_template(city, temp, UNITS, icon, desc, sunrise, sunset)
+    prepare_template(city, COUNTRY_CODE, temp, UNITS, icon, desc, sunrise, sunset)
 
     with open(README_PATH, 'r', encoding='utf-8') as fr:
         readme = fr.read()
