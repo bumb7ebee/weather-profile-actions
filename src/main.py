@@ -61,8 +61,8 @@ def main():
     temp = math.ceil(api_data_json['main']['temp'])
     icon = api_data_json['weather'][0]['icon']
     desc = api_data_json['weather'][0]['description']
-    sunrise = api_data_json['sys'][0]['sunrise']
-    sunset = api_data_json['sys'][0]['sunset']
+    sunrise = api_data_json['sys']['sunrise']
+    sunset = api_data_json['sys']['sunset']
 
     prepare_template(city, temp, UNITS, icon, desc, sunrise, sunset)
 
