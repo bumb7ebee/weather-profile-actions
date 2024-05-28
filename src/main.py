@@ -7,7 +7,7 @@ import requests as req
 WEATHER_REQUEST_URL = "https://api.openweathermap.org/data/2.5/weather?id={}&units={}&mod=json&appid={}"
 
 WEATHER_TEMPLATE="""<h3>Hello from {} province of <img src="https://flagicons.lipis.dev/flags/4x3/{}.svg" width="28" height="21"/></h3>
-<p>Currently, the weather is: <b> {}°{}, <img src="https://openweathermap.org/img/wn/{}.png" width="28" height="28" title= "Weather Icon" alt="Weather Icon"> <i>({})</i></b></br>Today, the sun rises at <b>{}</b> and sets at <b>{}</b>.</p>"""
+<p>Currently, the weather is: <b>{}°{}, <img src="https://openweathermap.org/img/wn/{}.png" width="28" height="28" title= "Weather Icon" alt="Weather Icon"> <i>({})</i></b></p>"""
 
 def refresh_contents(old_content, new_content):
     r = re.compile(r'<!\-\- WEATHER:START \-\->((.|\n)*)<!\-\- WEATHER:END \-\->', re.DOTALL)
@@ -18,9 +18,9 @@ def prepare_url(city_id, units, weather_api_key):
     global WEATHER_REQUEST_URL
     WEATHER_REQUEST_URL = WEATHER_REQUEST_URL.format(city_id, 'imperial' if units == 'f' else 'metric', weather_api_key)
 
-def prepare_template(city, country_code, temp, units, icon, desc, sunrise, sunset):
+def prepare_template(city, country_code, temp, units, icon, desc):
     global WEATHER_TEMPLATE
-    WEATHER_TEMPLATE = WEATHER_TEMPLATE.format(city, country_code, temp, units.capitalize(), icon, desc, sunrise, sunset)
+    WEATHER_TEMPLATE = WEATHER_TEMPLATE.format(city, country_code, temp, units.capitalize(), icon, desc)
 
 def make_request():
     try:
@@ -65,10 +65,8 @@ def main():
     temp = math.ceil(api_data_json['main']['temp'])
     icon = api_data_json['weather'][0]['icon']
     desc = api_data_json['weather'][0]['description']
-    sunrise = api_data_json['sys']['sunrise']
-    sunset = api_data_json['sys']['sunset']
 
-    prepare_template(city, COUNTRY_CODE, temp, UNITS, icon, desc, sunrise, sunset)
+    prepare_template(city, COUNTRY_CODE, temp, UNITS, icon, desc)
 
     with open(README_PATH, 'r', encoding='utf-8') as fr:
         readme = fr.read()
