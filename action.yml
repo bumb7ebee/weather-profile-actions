@@ -13,7 +13,7 @@ inputs:
   city-id:
     description: "Numerical ID of the city"
     required: true
-  metric:
+  units:
     description: "Centigrade (c) or Fahrenheit (f)"
     required: false
     default: 'c'
