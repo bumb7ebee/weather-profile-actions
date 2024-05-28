@@ -14,9 +14,11 @@ def refresh_contents(old_content, new_content):
     return r.sub(new_content_formated, old_content)
 
 def prepare_url(city_id, units, weather_api_key):
+    global WEATHER_REQUEST_URL
     WEATHER_REQUEST_URL = WEATHER_REQUEST_URL.format(city_id, 'imperial' if units == 'f' else 'metric', weather_api_key)
 
 def prepare_template(city, temp, units, icon, desc, sunrise, sunset):
+    global WEATHER_TEMPLATE
     WEATHER_TEMPLATE = WEATHER_TEMPLATE.format(city, temp, units.capitalize(), icon, desc, sunrise, sunset)
 
 def make_request():
