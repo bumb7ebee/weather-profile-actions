@@ -67,7 +67,7 @@ def main():
     prepare_template(city, temp, UNITS, icon, desc, sunrise, sunset)
 
     with open(README_PATH, 'r', encoding='utf-8') as fr:
-        readme = f.read()
+        readme = fr.read()
 
     readme_new = refresh_contents(readme, WEATHER_TEMPLATE)
 
