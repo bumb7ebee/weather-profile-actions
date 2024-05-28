@@ -6,8 +6,8 @@ import requests as req
 
 WEATHER_REQUEST_URL = "https://api.openweathermap.org/data/2.5/weather?id={}&units={}&mod=json&appid={}"
 
-WEATHER_TEMPLATE="""<h3>Hello from {} province of <img src="https://flagicons.lipis.dev/flags/4x3/{}.svg" width="28" height="21"/></h3>
-<p>Currently, the weather is: <b>{}°{}, <img src="https://openweathermap.org/img/wn/{}.png" width="28" height="28" title= "Weather Icon" alt="Weather Icon"> <i>({})</i></b></p>"""
+WEATHER_TEMPLATE="""<h3 align="center">Hello from {} province of <img src="https://flagicons.lipis.dev/flags/4x3/{}.svg" width="28" height="21"/></h3>
+<p align="center">Currently, the weather is: <b>{}°{}, <img src="https://openweathermap.org/img/wn/{}.png" width="28" height="28"> <i>({})</i></b></p>"""
 
 def refresh_contents(old_content, new_content):
     r = re.compile(r'<!\-\- WEATHER:START \-\->((.|\n)*)<!\-\- WEATHER:END \-\->', re.DOTALL)
