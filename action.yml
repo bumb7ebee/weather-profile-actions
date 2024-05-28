@@ -11,12 +11,18 @@ inputs:
     description: "OpenWeather API key"
     required: true
   city-id:
-    description: "Numerical ID of the city"
+    description: "City ID obtained from OpenWeather"
     required: true
   units:
     description: "Centigrade (c) or Fahrenheit (f)"
     required: false
     default: 'c'
+  country:
+    descriptino: "Country name"
+    required: true
+  country-code:
+    description: "Country code obtained from https://flagicons.lipis.dev/"
+    required: true
   readme-path:
     description: "README.md file path"
     required: false
@@ -25,7 +31,6 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - uses: actions/checkout@v4
     - name: Setup Python
       uses: actions/setup-python@v5
       with:
