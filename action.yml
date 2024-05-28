@@ -17,9 +17,6 @@ inputs:
     description: "Centigrade (c) or Fahrenheit (f)"
     required: false
     default: 'c'
-  country:
-    descriptino: "Country name"
-    required: true
   country-code:
     description: "Country code obtained from https://flagicons.lipis.dev/"
     required: true
