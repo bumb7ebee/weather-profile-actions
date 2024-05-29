@@ -15,9 +15,9 @@
 
 <!--
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/bumb7ebee/weather-profile-actions/main/assets/screenshot/partial-dark.png"/>
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/bumb7ebee/weather-profile-actions/main/assets/screenshot/partial-light.png"/>
-  <img title="Screenshot" alt="Screenshot" src="https://raw.githubusercontent.com/bumb7ebee/weather-profile-actions/main/assets/screenshot/partial-light.png"/>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/screenshot/partial-dark.png"/>
+  <source media="(prefers-color-scheme: light)" srcset="assets/screenshot/partial-light.png"/>
+  <img title="Screenshot" alt="Screenshot" src="assets/screenshot/partial-light.png"/>
 </picture>
 -->
 
@@ -89,11 +89,11 @@ Make sure your request is meaningful and you have tested the app locally before 
 [☕ Buy me a coffee](https://buymeacoffee.com/bumb7ebee)
 -->
 
-### Related Projects
+### 📌 Related Projects
 [https://github.com/thmsgbrt/thmsgbrt](https://github.com/thmsgbrt/thmsgbrt)  
 [https://github.com/huantt/weather-forecast](https://github.com/huantt/weather-forecast)
 
-### License
+### 📄 LICENSE
 This product is licensed under the [MIT License](LICENSE).
 
 ---
