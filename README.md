@@ -96,6 +96,11 @@ Make sure your request is meaningful and you have tested the app locally before 
 ### 📄 LICENSE
 This product is licensed under the [MIT License](LICENSE).
 
+### 👏 Contributors:
+<a href="https://github.com/bumb7ebee/weather-profile-actions/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=bumb7ebee/weather-profile-actions&max=1000&columns=10&anon=1" />
+</a>
+
 ---
 
 <p align="center">Made with ❤️ and <img src=https://img.shields.io/badge/-Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54></p>
