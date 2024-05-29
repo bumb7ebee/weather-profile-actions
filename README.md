@@ -64,7 +64,7 @@ jobs:
 ```
 9. Wait for it to run automatically, or you can also trigger it manually to see the result instantly.
 
-### Options
+### 🔧 Options
 This workflow has options that you can use to customize it for your use case. The following are the list of options available:
 | Option                         | Default Value                  | Required   | Description                                                                                                                                                                                                                                                |
 | :----------------------------- | :----------------------------- | :--------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
