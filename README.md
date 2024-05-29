@@ -58,11 +58,21 @@ jobs:
         with:
           weather-api-key: ${{ secrets.WEATHER_API_KEY }} # secret variable of OpenWeather API KEY
           city-id: 740483 # city id obtained from OpenWeather
-          units: c # centigrade (c) or fahrenheit (f)
+          units: c # c (centigrade) or f (fahrenheit)
           country-code: tr # country code obtained from https://flagicons.lipis.dev/
           readme-path: README.md # relative path of the README file. something like: README, README.md, src/README, src/README.md, etc.
 ```
 9. Wait for it to run automatically, or you can also trigger it manually to see the result instantly.
+
+### Options
+This workflow has options that you can use to customize it for your use case. The following are the list of options available:
+| Option                       | Default Value                | Required | Description                                                                                                                                                                                                                                              |
+|------------------------------|------------------------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `weather-api-key`            | `""`                         | Yes      | Secret variable of OpenWeather API KEY                                                                                                                                                                                                                   |
+| `city-id`                    | `""`                         | Yes      | City ID obtained from OpenWeather                                                                                                                                                                                                                        |
+| `units`                      | `""`                         | Yes      | c (centigrade) or f (fahrenheit)                                                                                                                                                                                                                         |
+| `country-code`               | `""`                         | Yes      | Country code obtained from https://flagicons.lipis.dev/                                                                                                                                                                                                  |
+| `readme-path`                | `""`                         | Yes      | Relative path of the README file. something like: README, README.md, src/README, src/README.md, etc.                                                                                                                                                     |
 
 ### 🤔 Why I decided to develop these actions?
 I had the idea of creating an actions for learning purposes for a while.
