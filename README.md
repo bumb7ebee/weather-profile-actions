@@ -54,7 +54,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Pull in weather data
-        uses: bumb7ebee/weather-profile-actions@v1.0.0
+        uses: bumb7ebee/weather-profile-actions@v1
         with:
           weather-api-key: ${{ secrets.WEATHER_API_KEY }} # secret variable of OpenWeather API KEY
           city-id: 740483 # city id obtained from OpenWeather
