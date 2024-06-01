@@ -3,7 +3,8 @@
   <h1 align="center">Weather in README</h1>
 </p>
 <p align="center">
-  Updates your README.md file with the weather of a city
+  Updates your README.md file with the weather of a city<br>
+  <a href="https://github.com/bumb7ebee/bumb7ebee">DEMO</a>
 </p>
 
 <p align="center">
