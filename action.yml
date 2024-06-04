@@ -4,7 +4,7 @@ description: Update your README.md file with the weather of a city
 
 branding:
   color: yellow
-  icon: play
+  icon: cloud-rain
 
 inputs:
   weather-api-key:
