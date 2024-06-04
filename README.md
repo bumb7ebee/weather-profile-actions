@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/icon/brand.png"/>
+  <img width="300" height="300" src="assets/icon/brand.png"/>
   <h1 align="center">Weather in README</h1>
 </p>
 <p align="center">
