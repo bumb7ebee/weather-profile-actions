@@ -84,7 +84,8 @@ I am open to any kind of contribution, and I would appreciate your contributions
 
 ### 🤗 Contributing
 Contributions are welcome! Feel free to open an issue or submit a pull request if you want to improve this project 💪💪💪  
-Make sure your request is meaningful and you have tested the app locally before submitting a pull request 🙏
+
+Please make sure your request is meaningful and you have tested the app locally before submitting a pull request 🙏
 
 ### 🙋‍♂️ Support
 💙 If you like this project, give it a ⭐ and share it with friends!
