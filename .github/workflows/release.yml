@@ -5,17 +5,16 @@ on:
     branches:
       - main
 
-env:
-  BUG_OR_FEAT: |
-    ${{ endsWith(github.event.head_commit.message, '[tag-bug]') && 1 ||
-    (endsWith(github.event.head_commit.message, '[tag-feat]') && 1 || 0) }}
+permissions:
+  contents: write
 
 jobs:
   build:
     name: Release to GitHub releases
     runs-on: ubuntu-latest
-      
-    if: ${{ bug_or_feat }}
+    env:
+      BUG_OR_FEAT: ${{ endsWith(github.event.head_commit.message, '[tag-bug]') && 5 || 6 }}
+    if: ${{ endsWith(github.event.head_commit.message, '[tag-bug]') || endsWith(github.event.head_commit.message, '[tag-feat]') }}
     steps:
 
       - name: Set the Git config
@@ -30,18 +29,21 @@ jobs:
 
       - name: Generate tag
         run: |
+          echo $BUG_OR_FEAT
           VERSION_MAJOR="1"
           VERSION_MINOR=$(git tag --list "${VERSION_MAJOR}.[0-9]*.[0-9]*" --sort=-version:refname | head -n 1 | grep -oE '[0-9]+\.[0-9]+$' | grep -oE '^[0-9]+')
           VERSION_PATCH=$(git tag --list "${VERSION_MAJOR}.[0-9]*.[0-9]*" --sort=-version:refname | head -n 1 | grep -oE '[0-9]+$')
-          
-          if [ "$BUG_OR_FEAT" -eq 1 ]; then
+          if [ $BUG_OR_FEAT -eq 5 ]; then
+            echo "BUG"
             NEW_VERSION="${VERSION_MAJOR}.${VERSION_MINOR}.$((VERSION_PATCH + 1))"
-          elif [ "$BUG_OR_FEAT" -eq 2 ]; then
+          elif [ $BUG_OR_FEAT -eq 6 ]; then
             NEW_VERSION="${VERSION_MAJOR}.$((VERSION_MINOR + 1)).0"
+            echo "FEAT"
           else
-            echo "Critical error..!"
+            echo "Critical error..! [1]"
+            exit 1
           fi
-          echo "Generated new version: $NEW_VERSION"
+          echo "Generated version: $NEW_VERSION"
           echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
 
       - name: Push Git Tag
