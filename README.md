@@ -4,7 +4,7 @@
 </p>
 <p align="center">
   Updates your README.md file with the weather of a city<br>
-  <a href="https://github.com/bumb7ebee/bumb7ebee">DEMO</a>
+  💿 <a href="https://github.com/bumb7ebee/bumb7ebee">DEMO</a>
 </p>
 
 <p align="center">
