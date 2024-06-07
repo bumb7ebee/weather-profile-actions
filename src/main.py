@@ -9,11 +9,6 @@ WEATHER_REQUEST_URL = "https://api.openweathermap.org/data/2.5/weather?id={}&uni
 WEATHER_TEMPLATE="""<h3 align="center">Hello from {} province of <img width="28" height="21" src="https://flagicons.lipis.dev/flags/4x3/{}.svg"/></h3>
 <p align="center">Currently, the weather is: <b>{}°{}, <img width="28" height="28" src="https://openweathermap.org/img/wn/{}.png"> <i>({})</i></b></p>"""
 
-def refresh_contents(old_content, new_content):
-    r = re.compile(r'<!\-\- WEATHER:START \-\->((.|\n)*)<!\-\- WEATHER:END \-\->', re.DOTALL)
-    new_content_formated = '<!-- WEATHER:START -->\n{}\n<!-- WEATHER:END -->'.format(new_content)
-    return r.sub(new_content_formated, old_content)
-
 def prepare_url(city_id, units, weather_api_key):
     global WEATHER_REQUEST_URL
     WEATHER_REQUEST_URL = WEATHER_REQUEST_URL.format(city_id, 'imperial' if units == 'f' else 'metric', weather_api_key)
@@ -21,6 +16,11 @@ def prepare_url(city_id, units, weather_api_key):
 def prepare_template(city, country_code, temp, units, icon, desc):
     global WEATHER_TEMPLATE
     WEATHER_TEMPLATE = WEATHER_TEMPLATE.format(city, country_code, temp, units.capitalize(), icon, desc)
+
+def refresh_contents(old_content, new_content):
+    r = re.compile(r'<!\-\- WEATHER:START \-\->((.|\n)*)<!\-\- WEATHER:END \-\->', re.DOTALL)
+    new_content_formated = '<!-- WEATHER:START -->\n{}\n<!-- WEATHER:END -->'.format(new_content)
+    return r.sub(new_content_formated, old_content)
 
 def make_request():
     try:
