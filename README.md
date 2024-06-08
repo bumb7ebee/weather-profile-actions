@@ -115,4 +115,4 @@ This product is licensed under the [MIT License](LICENSE).
 
 ---
 
-<p align="center">Made with ❤️ & <img src=https://img.shields.io/badge/-Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54></p>
+<p align="center"><b><i>Made with </i></b>❤️<b><i> & </i></b><img src=https://img.shields.io/badge/-Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54></p>
